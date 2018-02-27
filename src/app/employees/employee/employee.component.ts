@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'
-import { EmployeeService } from '../shared/employee.service'
+import { NgForm } from '@angular/forms';
+import { EmployeeService } from '../shared/employee.service';
+import { Employee } from '../shared/employee.model';
 
 @Component({
   selector: 'app-employee',
@@ -9,13 +10,16 @@ import { EmployeeService } from '../shared/employee.service'
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private employeeService : EmployeeService) { }
+  employee: Employee;
+
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.employee = new Employee(null, null, null, null);
   }
 
-  resetForm(form : NgForm){
-  
+  resetForm(form: NgForm) {
+
   }
 
 }

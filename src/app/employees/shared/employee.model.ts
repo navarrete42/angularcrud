@@ -1,6 +1,8 @@
 export class Employee {
-  userId:number;
-  id:number;
-  title:number;
-  body:number;
+  constructor(
+    public userId: number,
+    public id: number,
+    public title: number,
+    public body: number
+  ) {}
 }
