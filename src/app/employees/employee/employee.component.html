@@ -1,16 +1,20 @@
 <form class="emp-form"  #employeeForm="ngForm" >
 	<div class="form-row">
 		<div class="form-group col-md-6">
-			<input class="form-control" name="userId" [(ngModel)]="employee.userId" placeholder="User id ">
+			<input class="form-control" name="userId" #userId="ngModel" [(ngModel)]="employee.userId" placeholder="User id " required>	
+			<div class="validation-error" *ngIf="userId.invalid && userId.touched"> This Field is required</div>		
 		</div>
 		<div class="form-group col-md-6">
-			<input class="form-control" name="id" [(ngModel)]="employee.id" placeholder="Id ">
+			<input class="form-control" name="id"  #id="ngModel" [(ngModel)]="employee.id" placeholder="Id " required>	
+			<div class="validation-error" *ngIf="id.invalid && id.touched"> This Field is required</div>		
 		</div>
 		<div class="form-group col-md-6">
-			<input class="form-control" name="title" [(ngModel)]="employee.title" placeholder="Title">
+			<input class="form-control" name="title" #title="ngModel" [(ngModel)]="employee.title" placeholder="Title" required>
+			<div class="validation-error" *ngIf="title.invalid && title.touched"> This Field is required</div>
 		</div>
 		<div class="form-group col-md-6">
-			<input class="form-control" name="body" [(ngModel)]="employee.body" placeholder="body">
+			<input class="form-control" name="body"  #body="ngModel" [(ngModel)]="employee.body" placeholder="Descripcion" required>
+			<div class="validation-error" *ngIf="body.invalid && body.touched"> This Field is required</div>
 		</div>
 	</div>
 	<div class="form-row">
