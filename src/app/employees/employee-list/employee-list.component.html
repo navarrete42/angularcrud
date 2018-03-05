@@ -1,3 +1,18 @@
-<p>
-  employee-list works!
-</p>
+<table class="table table-sm table-hover">
+  <tr *ngFor="let employee of employeeService.employeeList">
+    <td>{{employee.userId}}</td>
+    <td>{{employee.title}}</td>
+    <td>{{employee.body}}</td>
+    <td>
+      <a class="btn">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+    </td>
+    <td>
+        <a class="btn text-danger">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </td>
+  </tr>
+</table>
+
