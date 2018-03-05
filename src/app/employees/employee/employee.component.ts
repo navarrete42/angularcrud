@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms'
 
+
 import { EmployeeService } from '../shared/employee.service';
 import { Employee } from '../shared/employee.model';
+import {ToastrService} from 'ngx-toastr'
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @Component({
   selector: 'app-employee',
@@ -13,7 +16,7 @@ export class EmployeeComponent implements OnInit {
 
   employee: Employee;
 
-  constructor(public employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private toastr : ToastrService) { }
 
   ngOnInit() {
 
@@ -33,6 +36,16 @@ export class EmployeeComponent implements OnInit {
         title:'',
         body:''
       }
+  }
+
+  onSubmit(form : NgForm)
+  {
+    debugger;
+    this.employeeService.postEmployee(form.value)
+    .subscribe( data => {
+       this.resetForm(form);
+       this.toastr.success('New Record Added Successfully', 'Employee Register');
+    });
   }
 
 }

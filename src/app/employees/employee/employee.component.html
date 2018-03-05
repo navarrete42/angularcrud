@@ -1,4 +1,4 @@
-<form class="emp-form"  #employeeForm="ngForm" >
+<form class="emp-form"  #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" >
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<input class="form-control" name="userId" #userId="ngModel" [(ngModel)]="employee.userId" placeholder="User id " required>	
@@ -20,7 +20,7 @@
 	<div class="form-row">
 		
 		<div class="form-group col-md-8">
-			<button type="Submit" class="btn btn-lg btn-block btn-info">Submit</button>
+			<button [disabled]="!employeeForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
 		</div>
 		<div class="form-group col-md-4">
 			<button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(employeeForm)">Reset</button>
